@@ -5,6 +5,7 @@ Commands and other things I Google all the time with varying degrees of success.
 - [Git](#Git)
 - [Docker](#Docker)
 - [AWS](#AWS)
+- [Bash](#Bash)
 
 ## Git
 [This link](http://gwu-libraries.github.io/Git.html) is helpful.
