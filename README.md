@@ -48,6 +48,19 @@ Running **Jupyter notebook** in container on specific port (not specific to Dock
 jupyter notebook --allow-root --ip=0.0.0.0 --no-browser --port 9999
 ```
 
+**Docker compose** to build first time. Leave `--build` off after first time. The `-d` flag is important. It tells docker to start containers in the background and leave them running.
+```bash
+# is a wd with docker-compose.yml
+docker-compose up -d --build
+# shutdown containers
+docker-compose down
+```
+
+Truncated docker `ps` check:
+```bash
+docker ps | less -S
+```
+
 ## AWS
 Copy files from s3 to local file system. `--profile` optional depending on if you're using that to authenticate.
 ```bash
