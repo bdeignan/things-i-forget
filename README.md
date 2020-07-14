@@ -6,6 +6,7 @@ Commands and other things I Google all the time with varying degrees of success.
 - [Docker](#Docker)
 - [AWS](#AWS)
 - [Bash](#Bash)
+- [Python](#Python)
 
 ## Git
 [This link](http://gwu-libraries.github.io/Git.html) is helpful.
@@ -77,4 +78,36 @@ Put this in your `.bashrc` to alias command for jupyter notebook server. This is
 ```bash
 # add jupyter command
 alias notebookserver='jupyter notebook --allow-root --ip=0.0.0.0 --no-browser --port 9999'
+```
+
+Open a file with Sublime
+```bash
+open -a /Applications/Sublime\ Text.app <filename>
+```
+
+## Python
+
+#### Pyenv
+Don't forget to add `pyenv init` to .bashrc or .zshrc
+```bash
+eval "$(pyenv init -)"
+```
+
+#### Poetry
+Initalize a project in an existing directory:
+```bash
+poetry init
+```
+
+Otherwise, from scratch:
+```bash
+# create a new project and directory called "project"
+poetry new project
+cd project
+# install pandas
+poetry add pandas
+# run a python command in environment
+poetry run python <script.py>
+# activate environment
+poetry shell
 ```
