@@ -20,6 +20,15 @@ Checkout remote branch and rename it (sometimes collaborators create awfully lon
 git checkout -b mybranch origin/myremotebranch
 ```
 
+Cherry pick a commit. Cherry picking in Git means to choose a commit from one branch and apply it onto another.
+```bash
+# checkout the branch to apply commit to
+git checkout <src branch>
+git cherry-pick <commit-hash>
+# if branch is public, using -x flag for a public branch
+git cherry-pick -x <commit-hash-on-public-branch>
+```
+
 ## Docker
 Create new docker container with local working directory mounted and port binding (e.g. for jupyter notebooks and more)
 ```bash
