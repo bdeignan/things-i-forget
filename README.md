@@ -26,6 +26,11 @@ One-line git log
 git log --pretty=oneline
 ```
 
+Make your default init branch "main" (Only works for Git 2.28+)
+```bash
+git config --global init.defaultBranch trunk
+```
+
 ## Docker
 Create new docker container with local working directory mounted and port binding (e.g. for jupyter notebooks and more)
 ```bash
