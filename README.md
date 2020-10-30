@@ -21,6 +21,11 @@ Checkout remote branch and rename it (sometimes collaborators create awfully lon
 git checkout -b mybranch origin/myremotebranch
 ```
 
+One-line git log
+```bash
+git log --pretty=oneline
+```
+
 ## Docker
 Create new docker container with local working directory mounted and port binding (e.g. for jupyter notebooks and more)
 ```bash
@@ -111,3 +116,17 @@ poetry run python <script.py>
 # activate environment
 poetry shell
 ```
+
+Delete an existing poetry virtualenv:
+```bash
+# This will give you the name to remove in next command
+poetry env list
+# Replace WhatEvs env below with the actual name
+poetry env remove whatever-WhATeVs-py3.9
+```
+
+Get poetry project/virtualenv information
+```bash
+poetry env info
+```
+For example the `Path: {}` info can be used for settings the interpreter in VS Code.
