@@ -7,6 +7,7 @@ Commands and other things I Google all the time with varying degrees of success.
 - [AWS](#AWS)
 - [Bash](#Bash)
 - [Python](#Python)
+- [VS-Code](#VS-Code)
 
 ## Git
 [This link](http://gwu-libraries.github.io/Git.html) is helpful.
@@ -135,3 +136,10 @@ Get poetry project/virtualenv information
 poetry env info
 ```
 For example the `Path: {}` info can be used for settings the interpreter in VS Code.
+
+## VS-Code
+
+Setup `black` format on save:
+- Go to Settings
+- Search for "format on save", and check the box
+- Search for "python formatting provider", from drop down select the library you want.
