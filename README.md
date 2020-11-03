@@ -29,7 +29,7 @@ git log --pretty=oneline
 
 Make your default init branch "main" (Only works for Git 2.28+)
 ```bash
-git config --global init.defaultBranch trunk
+git config --global init.defaultBranch main
 ```
 
 ## Docker
