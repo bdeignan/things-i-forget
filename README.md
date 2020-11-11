@@ -150,7 +150,13 @@ The last command can get fancier including: separating dev and prod deps and `gr
 
 ## VS-Code
 
-Setup `black` format on save:
+Setup **`black`** format on save:
 - Go to Settings
 - Search for "format on save", and check the box
 - Search for "python formatting provider", from drop down select the library you want.
+
+Configuring **YAPF**:
+In user or project settings.json, you can configure YAPF by adding args like,
+```json
+"python.formatting.yapfArgs": ["--style={ based_on_style: pep8, column_limit: 120 }"],
+```
