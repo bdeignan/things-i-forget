@@ -137,6 +137,15 @@ poetry env info
 ```
 For example the `Path: {}` info can be used for settings the interpreter in VS Code.
 
+How to create a virtualenv from a `requirements.txt` file in existing project:
+```bash
+# initialize env and follow prompts
+poetry init
+# install reqs
+cat requirements.txt|xargs poetry add
+```
+The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
+
 ## VS-Code
 
 Setup `black` format on save:
