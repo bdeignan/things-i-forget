@@ -143,6 +143,8 @@ How to create a virtualenv from a `requirements.txt` file in existing project:
 poetry init
 # install reqs
 cat requirements.txt|xargs poetry add
+# OPTIONAL: if you want to install local module you're working on
+poetry install
 ```
 The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
 
