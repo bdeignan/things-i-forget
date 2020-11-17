@@ -137,6 +137,7 @@ poetry env info
 ```
 For example the `Path: {}` info can be used for settings the interpreter in VS Code.
 
+
 How to create a virtualenv from a `requirements.txt` file in existing project:
 ```bash
 # initialize env and follow prompts
@@ -147,6 +148,15 @@ cat requirements.txt|xargs poetry add
 poetry install
 ```
 The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
+
+#### Jupyter
+Enable notebook extensions - there's mostly wrong info on StackOverflow and Github issues out there. THIS is it:
+```bash
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable varInspector/main
+```
+
 
 ## VS-Code
 
