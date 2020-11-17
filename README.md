@@ -137,6 +137,14 @@ poetry env info
 ```
 For example the `Path: {}` info can be used for settings the interpreter in VS Code.
 
+#### Jupyter
+Enable notebook extensions - there's mostly wrong info on StackOverflow and Github issues out there. THIS is it:
+```bash
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable varInspector/main
+```
+
 ## VS-Code
 
 Setup `black` format on save:
