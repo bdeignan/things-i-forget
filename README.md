@@ -137,6 +137,18 @@ poetry env info
 ```
 For example the `Path: {}` info can be used for settings the interpreter in VS Code.
 
+
+How to create a virtualenv from a `requirements.txt` file in existing project:
+```bash
+# initialize env and follow prompts
+poetry init
+# install reqs
+cat requirements.txt|xargs poetry add
+# OPTIONAL: if you want to install local module you're working on
+poetry install
+```
+The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
+
 #### Jupyter
 Enable notebook extensions - there's mostly wrong info on StackOverflow and Github issues out there. THIS is it:
 ```bash
@@ -145,9 +157,16 @@ jupyter contrib nbextension install --user
 jupyter nbextension enable varInspector/main
 ```
 
+
 ## VS-Code
 
-Setup `black` format on save:
+Setup **`black`** format on save:
 - Go to Settings
 - Search for "format on save", and check the box
 - Search for "python formatting provider", from drop down select the library you want.
+
+Configuring **YAPF**:
+In user or project settings.json, you can configure YAPF by adding args like,
+```json
+"python.formatting.yapfArgs": ["--style={ based_on_style: pep8, column_limit: 120 }"],
+```
