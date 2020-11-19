@@ -96,6 +96,11 @@ Open a file with Sublime
 open -a /Applications/Sublime\ Text.app <filename>
 ```
 
+Remove all versions from a pip requirements file:
+```bash
+cat requirements.txt | sed 's/=.*//' > requirements-no-versions.txt
+```
+
 ## Python
 
 #### Pyenv
@@ -177,6 +182,11 @@ conda create -n py37 python=3.7
 conda env list
 conda activate py37
 conda deactivate
+```
+
+Conda install requirements from pip's requirements.txt (also see bash above to remove version numbers if necessary), in an activated environment:
+```bash
+conda install --force-reinstall -y -q --name py37 --file requirements-no-versions.txt
 ```
 
 #### Jupyter
