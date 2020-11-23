@@ -189,6 +189,14 @@ Conda install requirements from pip's requirements.txt (also see bash above to r
 conda install --force-reinstall -y -q --name py37 --file requirements-no-versions.txt
 ```
 
+Install local package you're working on in the virtual env:
+```bash
+# install, like pip install -e .
+conda develop .
+# uninstall
+conda develop -u .
+```
+
 #### Jupyter
 Enable notebook extensions - there's mostly wrong info on StackOverflow and Github issues out there. THIS is it:
 ```bash
