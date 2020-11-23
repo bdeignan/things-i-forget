@@ -96,6 +96,11 @@ Open a file with Sublime
 open -a /Applications/Sublime\ Text.app <filename>
 ```
 
+Remove all versions from a pip requirements file:
+```bash
+cat requirements.txt | sed 's/=.*//' > requirements-no-versions.txt
+```
+
 ## Python
 
 #### Pyenv
@@ -148,6 +153,41 @@ cat requirements.txt|xargs poetry add
 poetry install
 ```
 The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
+
+#### Conda
+[This SO answer](https://stackoverflow.com/a/58045984/9448289) walks through how to install and use Anaconda _alongside_ `pyenv` on MacOS. Sometimes, I work on projects that have dependencies outside of python which Conda can handle well – e.g. `pyarrow`.
+
+```bash
+# brew install anaconda
+brew cask install anaconda
+```
+
+Then, pay attention to where brew installs conda on your system. Note that path to use in next command:
+```bash
+source <path to conda>/bin/activate
+conda init zsh
+# disable init of env "base"
+conda config --set auto_activate_base false
+```
+
+**Side note**: If commands above say something about no write permission on a conda file in `~/.conda/`, run this:
+```bash
+sudo chmod -R 775 ~/.conda/
+```
+
+Then you should be able to create env per usual commands:
+```bash
+# virtual environments from conda
+conda create -n py37 python=3.7
+conda env list
+conda activate py37
+conda deactivate
+```
+
+Conda install requirements from pip's requirements.txt (also see bash above to remove version numbers if necessary), in an activated environment:
+```bash
+conda install --force-reinstall -y -q --name py37 --file requirements-no-versions.txt
+```
 
 #### Jupyter
 Enable notebook extensions - there's mostly wrong info on StackOverflow and Github issues out there. THIS is it:
