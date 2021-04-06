@@ -5,7 +5,7 @@ Commands and other things I Google all the time with varying degrees of success.
 - [Git](#Git)
 - [Docker](#Docker)
 - [AWS](#AWS)
-- [Bash](#Bash)
+- [Bash/Zsh Terminal](#Terminal)
 - [Python](#Python)
 - [VS-Code](#VS-Code)
 
@@ -84,8 +84,8 @@ This is pretty obscure, but ECR login method changed significantly for AWS-CLI 2
 aws --profile <PROFILENAME> ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 ```
 
-## Bash
-Put this in your `.bashrc` to alias command for jupyter notebook server. This is more useful for running in Docker since that command requires more flags that I forget.
+## Terminal
+Put this in your `.bashrc` or `.zshrc` to alias command for jupyter notebook server. This is more useful for running in Docker since that command requires more flags that I forget.
 ```bash
 # add jupyter command
 alias notebookserver='jupyter notebook --allow-root --ip=0.0.0.0 --no-browser --port 9999'
@@ -99,6 +99,11 @@ open -a /Applications/Sublime\ Text.app <filename>
 Remove all versions from a pip requirements file:
 ```bash
 cat requirements.txt | sed 's/=.*//' > requirements-no-versions.txt
+```
+
+Sometimes the terminal slows down on MacOS, and removing these Apple System Logs can speed it back up. For example, launching a Python virtual env was getting noticeably slower and after running this command, it sped back up:
+```bash
+sudo rm -rf /private/var/log/asl/*.asl
 ```
 
 ## Python
