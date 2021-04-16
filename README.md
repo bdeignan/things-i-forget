@@ -33,6 +33,16 @@ Make your default init branch "main" (Only works for Git 2.28+)
 git config --global init.defaultBranch main
 ```
 
+Remove a file from a pull request/remote branch:
+```bash
+git checkout pull-request-branch
+# Overwrite the modified file(s) with the file in another branch, let's consider it's master:
+git checkout origin/master -- file/to/reset.py
+# commit and push
+git commit -m "Removed a modified file from pull request"
+git push origin pull-request-branch
+```
+
 ## Docker
 Create new docker container with local working directory mounted and port binding (e.g. for jupyter notebooks and more)
 ```bash
