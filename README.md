@@ -8,6 +8,7 @@ Commands and other things I Google all the time with varying degrees of success.
 - [Bash/Zsh Terminal](#Terminal)
 - [Python](#Python)
 - [VS-Code](#VS-Code)
+- [Mac stuff](#MacOS)
 
 ## Git
 [This link](http://gwu-libraries.github.io/Git.html) is helpful.
@@ -30,6 +31,16 @@ git log --pretty=oneline
 Make your default init branch "main" (Only works for Git 2.28+)
 ```bash
 git config --global init.defaultBranch main
+```
+
+Remove a file from a pull request/remote branch:
+```bash
+git checkout pull-request-branch
+# Overwrite the modified file(s) with the file in another branch, let's consider it's master:
+git checkout origin/master -- file/to/reset.py
+# commit and push
+git commit -m "Removed a modified file from pull request"
+git push origin pull-request-branch
 ```
 
 ## Docker
@@ -159,6 +170,11 @@ poetry install
 ```
 The last command can get fancier including: separating dev and prod deps and `grep`-ing certain lines or trimming off package version numbers.
 
+Have poetry create the virtual environments in your project's folder (like `venv` does) so it's easier for VSCode to find, since I sometimes have trouble getting VSCode to use the right python interpreter:
+```bash
+poetry config virtualenvs.in-project true
+```
+
 #### Conda
 [This SO answer](https://stackoverflow.com/a/58045984/9448289) walks through how to install and use Anaconda _alongside_ `pyenv` on MacOS. Sometimes, I work on projects that have dependencies outside of python which Conda can handle well – e.g. `pyarrow`.
 
@@ -223,3 +239,12 @@ In user or project settings.json, you can configure YAPF by adding args like,
 ```json
 "python.formatting.yapfArgs": ["--style={ based_on_style: pep8, column_limit: 120 }"],
 ```
+
+## MacOS
+
+Permanently show hidden files in finder (which you would think would be a setting you could change via somewhere besides only the terminal):
+```bash
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
+```
+Same command but `true` -> `false` hides the files again.
